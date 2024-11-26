@@ -21,3 +21,49 @@ BLIMP files encapsulate both the bitmap image data of a font and metadata descri
 - Support for additional Unicode characters through an extended character map.
 
 This format is particularly suitable for embedded systems or applications requiring a simple, bitmap-based font without the overhead of complex font rendering engines.
+---
+
+## File Structure
+
+A BLIMP file is composed of the following sections, each serving a specific purpose:
+
+1. [Magic Identifier](#magic-identifier)
+2. [Version Header](#version-header)
+3. [Metadata Header](#metadata-header)
+4. [Character Map](#character-map)
+5. [Bitmap Data](#bitmap-data)
+
+### Magic Identifier
+
+- **Size:** 4 bytes  
+- **Content:** ASCII characters `"BLMP"`  
+- **Purpose:** Identifies the file as a BLIMP format file.
+
+---
+
+### Version Header
+
+- **Size:** 1 byte  
+- **Content:** Format version number.  
+  - Current version is `0x01`.  
+- **Purpose:** Allows for future enhancements and backward compatibility.
+
+---
+
+### Metadata Header
+
+The metadata header provides essential information about the font and its bitmap image.
+
+| Field             | Size (bytes) | Description                                         |
+|-------------------|--------------|-----------------------------------------------------|
+| Image Width       | 4            | Width of the bitmap image in pixels.                |
+| Image Height      | 4            | Height of the bitmap image in pixels.               |
+| Character Count   | 4            | Total number of characters included.                |
+| Font Size         | 2            | Font size used to render the bitmap (e.g., 16px).   |
+| Reserved          | 2            | Reserved for future use (currently set to `0`).     |
+
+- **Image Width and Height:** Define the dimensions of the bitmap image containing all characters.  
+- **Character Count:** Includes the default 128 ASCII characters and any additional Unicode characters.  
+- **Reserved:** Placeholder for potential future features.
+
+---

@@ -67,3 +67,19 @@ The metadata header provides essential information about the font and its bitmap
 - **Reserved:** Placeholder for potential future features.
 
 ---
+### Character Map
+
+The character map lists the Unicode code points of all characters included in the font.
+
+- **Default Characters:** The first 128 entries correspond to the ASCII character set (`0x00` to `0x7F`).  and do not need to be explicitly listed in the character map.
+- **Additional Characters:** Any extra Unicode characters are listed sequentially as needed.
+
+| Field       | Size (bytes) | Description                         |
+|-------------|--------------|-------------------------------------|
+| Code Point  | 4            | Unicode code point of the character |
+
+```plaintext
+00C6 00DF 20AC
+```
+
+---

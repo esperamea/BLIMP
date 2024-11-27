@@ -83,3 +83,13 @@ The character map lists the Unicode code points of all characters included in th
 ```
 
 ---
+### Bitmap Data
+
+The bitmap data represents the visual glyphs of the font.
+
+- **Format:** 1 bit per pixel.  
+  - `1`: Pixel is on (white).  
+  - `0`: Pixel is off (black).  
+- **Row Alignment:** Each row is padded to the nearest byte boundary to ensure proper alignment.
+
+---
